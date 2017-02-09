@@ -20,12 +20,24 @@ public class HiloPeticion extends Thread {
     public void run() {
 
         InputStream is = null;
+        InputStream is2 = null;
+
         try {
             is = newsocket.getInputStream();
+            is2 = newsocket.getInputStream();
             OutputStream os = newsocket.getOutputStream();
-            byte[] mensaje = new byte[35];
-            is.read(mensaje);
-            System.out.println("Mensaje recibido " +new String(mensaje));
+
+
+            byte[] n1 = new byte[10];
+            is.read(n1);
+            String mes = new String (n1);
+            String otro = mes.trim();
+            int n2 = Integer.valueOf(otro);
+
+            int result = n2;
+
+
+            System.out.println("El resultado es: " + result);
             System.out.println("cerrando el socket");
             newsocket.close();
             System.out.println("cerrando el socket servidor");
