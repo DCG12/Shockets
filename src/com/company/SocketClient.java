@@ -36,13 +36,14 @@ public class SocketClient {
 
             InputStream is = cliente.getInputStream();
             OutputStream os = cliente.getOutputStream();
-            OutputStream os1 = cliente.getOutputStream();
-
 
             System.out.println("enviando mensaje");
 
+            String mas = "-";
+
             os.write(n1.getBytes());
-            os1.write(n3.getBytes());
+            os.write(mas.getBytes());
+            os.write(n3.getBytes());
             System.out.println("Mensaje enviado");
 
 

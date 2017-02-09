@@ -20,14 +20,13 @@ public class HiloPeticion extends Thread {
     public void run() {
 
         InputStream is = null;
-        InputStream is2 = null;
+
 
         try {
             is = newsocket.getInputStream();
-            is2 = newsocket.getInputStream();
             OutputStream os = newsocket.getOutputStream();
 
-
+/*
             byte[] n1 = new byte[10];
             is.read(n1);
             String mes = new String (n1);
@@ -35,18 +34,23 @@ public class HiloPeticion extends Thread {
             int n2 = Integer.valueOf(otro);
 
             int result = n2;
+            String resultado = "";
+            resultado = String.valueOf(result);
+            String[] parts = resultado.split("1");
+            String part1 = parts[0];*/
 
-
-            System.out.println("El resultado es: " + result);
+            byte[] n1 = new byte[10];
+            is.read(n1);
+            String mes = new String (n1);
+            String[] parts = mes.split("-");
+            String part1 = parts[0]; // 004
+            System.out.println("El resultado es: " + part1);
             System.out.println("cerrando el socket");
             newsocket.close();
             System.out.println("cerrando el socket servidor");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
 }
